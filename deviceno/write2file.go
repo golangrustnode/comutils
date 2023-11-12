@@ -1,4 +1,4 @@
-package comfile
+package deviceno
 
 import (
 	"errors"
@@ -34,4 +34,22 @@ func IsExist(path string) bool {
 		return false
 	}
 	return true
+}
+
+//Read file
+func ReadFile(path string) (string, error) {
+	if !IsExist(path) {
+		return "", errors.New("file not exist")
+	}
+	f, err := os.Open(path)
+	if err != nil {
+		return "", err
+	}
+	defer f.Close()
+	buf := make([]byte, 1024)
+	n, err := f.Read(buf)
+	if err != nil {
+		return "", err
+	}
+	return string(buf[:n]), nil
 }

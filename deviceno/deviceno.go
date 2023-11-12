@@ -3,7 +3,6 @@ package deviceno
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"github.com/golangrustnode/comutils/comfile"
 	"github.com/google/uuid"
 )
 
@@ -14,7 +13,7 @@ import (
 */
 func GenerateDeviceNoWithPrefix(prefix, path string) {
 	deviceNo := GenerateUniStringWithPrefix(prefix)
-	comfile.Write2file(deviceNo, path)
+	Write2file(deviceNo, path)
 }
 func GenerateUniStringWithPrefix(prefix string) string {
 	//1.生成uuid
