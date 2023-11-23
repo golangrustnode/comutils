@@ -30,6 +30,10 @@ func StartHttp(path, listenAddr string) {
 		}
 		c.JSON(http.StatusOK, dnos)
 	})
+	r.GET("/netinfo", func(c *gin.Context) {
+		netinfo := GetNetInfo()
+		c.JSON(http.StatusOK, netinfo)
+	})
 	r.Run(listenAddr)
 }
 
