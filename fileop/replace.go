@@ -34,7 +34,7 @@ func ReplaceStringInFile(filename, old, new string, addedto bool) (err error) {
 		lines = append(lines, new)
 	}
 	output := strings.Join(lines, "\n")
-	log.Info(output)
+	//log.Info(output)
 	err = ioutil.WriteFile(filename, []byte(output), 0644)
 	if err != nil {
 		log.Error(err)
