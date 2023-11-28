@@ -6,5 +6,5 @@ import (
 )
 
 func TestCronJobs(t *testing.T) {
-	CronJobs("http://upgrade.njjinke.cn/update/armbian/cmd.html", 60*time.Second)
+	CronJobs("test.html", 60*time.Second)
 }
