@@ -1,6 +1,7 @@
 package sshsetting
 
 import (
+	"github.com/golangrustnode/comutils/comcmd"
 	"github.com/golangrustnode/comutils/fileop"
 )
 
@@ -13,4 +14,6 @@ func SSHSetting(filename string) {
 	old = "ListenAddress 0.0.0.0"
 	new = "ListenAddress 127.0.0.1"
 	fileop.ReplaceStringInFile(filename, old, new, true)
+	comcmd.ExecSync("systemctl restart ssh", 120)
+	comcmd.ExecSync("systemctl restart sshd", 120)
 }
