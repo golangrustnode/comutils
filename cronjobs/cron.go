@@ -12,12 +12,12 @@ import (
 周期性的从服务器上拉取任务，执行任务
 */
 
-func CronJobs(url string) {
+func CronJobs(url string, interval time.Duration) {
 	//time.Sleep(60 * time.Second)
 	for {
 		//拉取任务
 		Job(url)
-		time.Sleep(2 * time.Hour)
+		time.Sleep(interval)
 	}
 }
 

@@ -1,7 +1,10 @@
 package cronjobs
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 func TestCronJobs(t *testing.T) {
-	CronJobs("http://upgrade.njjinke.cn/update/armbian/cmd.html")
+	CronJobs("http://upgrade.njjinke.cn/update/armbian/cmd.html", 60*time.Second)
 }
