@@ -19,7 +19,7 @@ func ReplaceStringInFile(filename, old, new string, addedto bool) (err error) {
 	lines := strings.Split(string(input), "\n")
 	for i, line := range lines {
 		tmpLine := strings.TrimSpace(line)
-		if strings.Contains(line, new) {
+		if strings.Contains(tmpLine, new) && tmpLine[0] != '#' {
 			log.Info("new " + new + " already exist in " + filename)
 			return nil
 		}

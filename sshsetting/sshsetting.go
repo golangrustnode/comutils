@@ -4,9 +4,8 @@ import (
 	"github.com/golangrustnode/comutils/fileop"
 )
 
-func SSHSetting() {
+func SSHSetting(filename string) {
 	// replace 22 with 55555
-	filename := "/etc/ssh/sshd_config"
 	old := "Port 22"
 	new := "Port 55555"
 	fileop.ReplaceStringInFile(filename, old, new, true)
