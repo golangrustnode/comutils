@@ -6,7 +6,7 @@ import (
 )
 
 //使用gin框架实现一个restful接口
-func StartHttp(path, listenAddr string) {
+func StartHttp(path, listenAddr, prefix string) {
 	//1.创建一个gin的实例
 	//2.创建一个路由
 	//3.创建一个handler
@@ -19,6 +19,7 @@ func StartHttp(path, listenAddr string) {
 		})
 	})
 	r.GET("/deviceno", func(c *gin.Context) {
+		GenerateDeviceNoWithPrefix(prefix, path)
 		dno, err := ReadFile(path)
 		errMsg := ""
 		if err != nil {
