@@ -15,3 +15,9 @@ func TestReadFile(t *testing.T) {
 		t.Log(content)
 	}
 }
+
+func TestOverrideWrite2File(t *testing.T) {
+	content := "hello world2"
+	path := "/tmp/ovtest.txt"
+	OverrideWrite2File(content, path)
+}

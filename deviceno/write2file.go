@@ -53,3 +53,19 @@ func ReadFile(path string) (string, error) {
 	}
 	return string(buf[:n]), nil
 }
+
+func OverrideWrite2File(content, path string) error {
+	f, err := os.Create(path)
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+	defer f.Close()
+	n, err := f.WriteString(content)
+	log.Info("write length:", n)
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+	return nil
+}
