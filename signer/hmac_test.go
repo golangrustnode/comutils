@@ -14,7 +14,7 @@ func TestHmacWithSha256(t *testing.T) {
 	path := "/api/v2/dispatch/getDeviceInfo"
 	timestamp := "12345678"
 	s := &S{
-		DeviceNo: "123456",
+		DeviceNo: "123456白日依山尽",
 	}
 	sd, _ := json.Marshal(s)
 	body := string(sd)
